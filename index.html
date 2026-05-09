@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="全國專題競賽作品展示頁，整合影片、海報、簡報與演算法流程。"
+    />
+    <title>全國專題競賽作品展示</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero" id="top">
+      <nav class="nav" aria-label="主要導覽">
+        <a class="brand" href="#top">全國專題競賽作品展示</a>
+        <div class="nav-links">
+          <a href="#video">影片</a>
+          <a href="#poster">海報</a>
+          <a href="#slides">簡報</a>
+          <a href="#extra">補充</a>
+          <a href="#algorithm">流程</a>
+        </div>
+      </nav>
+
+      <div class="hero-grid">
+        <section class="hero-copy">
+          <p class="eyebrow">全國專題競賽展示頁</p>
+          <h1>把作品重點濃縮成一個 QR Code 就能抵達的完整展示空間</h1>
+          <p class="hero-text">
+            本頁整合介紹影片、A1 海報、競賽簡報與演算法流程，適合放在名片、
+            展場桌牌或口頭簡報結尾，讓評審與觀眾可以快速延伸閱讀。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#video">開始瀏覽</a>
+            <a class="button ghost" href="#slides">
+              查看簡報展示
+            </a>
+          </div>
+        </section>
+
+        <aside class="quick-card" aria-label="展示內容摘要">
+          <span class="card-label">作品導覽</span>
+          <h2>一頁完成展示</h2>
+          <ul>
+            <li>嵌入 YouTube 作品影片</li>
+            <li>完整呈現海報與簡報內容</li>
+            <li>整合展場補充展示素材</li>
+            <li>用流程圖說明核心演算法</li>
+          </ul>
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <section class="section video-section" id="video">
+        <div class="section-heading">
+          <p class="eyebrow">01 / Video</p>
+          <h2>作品影片</h2>
+          <p>
+            透過影片快速掌握作品動機、系統設計與實際展示成果，作為瀏覽完整資料前的重點導覽。
+          </p>
+        </div>
+        <div class="video-shell" data-youtube-player>
+          <div class="video-placeholder">
+            <span>Video</span>
+            <h3>作品介紹影片</h3>
+            <p>影片內容載入中</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section document-section" id="poster">
+        <div class="section-heading">
+          <p class="eyebrow">02 / Poster</p>
+          <h2>A1 海報展示</h2>
+          <p>以逐頁方式呈現海報內容，方便在手機與桌機上快速瀏覽作品架構與研究成果。</p>
+        </div>
+        <article class="document-card">
+          <div class="document-toolbar">
+            <div>
+              <span class="card-label">海報展示</span>
+              <h3>A1 海報展示</h3>
+            </div>
+            <span class="page-mode">1 至 3 頁</span>
+          </div>
+          <div class="carousel poster-carousel" data-carousel aria-label="海報圖片展示">
+            <div class="carousel-viewport">
+              <button class="carousel-button prev" type="button" data-carousel-prev aria-label="上一頁">‹</button>
+              <div class="carousel-track" data-carousel-track>
+                <img src="assets/poster/poster-01.jpg" alt="A1 海報第 1 頁" loading="lazy" draggable="false" />
+                <img src="assets/poster/poster-02.jpg" alt="A1 海報第 2 頁" loading="lazy" draggable="false" />
+                <img src="assets/poster/poster-03.jpg" alt="A1 海報第 3 頁" loading="lazy" draggable="false" />
+              </div>
+              <button class="carousel-button next" type="button" data-carousel-next aria-label="下一頁">›</button>
+            </div>
+            <div class="carousel-footer">
+              <span class="carousel-status" data-carousel-status>1 / 3</span>
+              <div class="carousel-dots" data-carousel-dots aria-label="海報頁面切換"></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section document-section" id="slides">
+        <div class="section-heading">
+          <p class="eyebrow">03 / Slides</p>
+          <h2>簡報展示</h2>
+          <p>整理競賽簡報重點，涵蓋問題背景、系統架構、實作方法、展示成果與未來發展。</p>
+        </div>
+        <article class="document-card">
+          <div class="document-toolbar">
+            <div>
+              <span class="card-label">簡報展示</span>
+              <h3>競賽簡報展示</h3>
+            </div>
+            <span class="page-mode">1 至 28 頁</span>
+          </div>
+          <div class="carousel slide-carousel" data-carousel aria-label="簡報圖片展示">
+            <div class="carousel-viewport">
+              <button class="carousel-button prev" type="button" data-carousel-prev aria-label="上一頁">‹</button>
+              <div class="carousel-track" data-carousel-track>
+                <img src="assets/slides/slide-01.jpg" alt="簡報第 1 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-02.jpg" alt="簡報第 2 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-03.jpg" alt="簡報第 3 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-04.jpg" alt="簡報第 4 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-05.jpg" alt="簡報第 5 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-06.jpg" alt="簡報第 6 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-07.jpg" alt="簡報第 7 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-08.jpg" alt="簡報第 8 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-09.jpg" alt="簡報第 9 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-10.jpg" alt="簡報第 10 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-11.jpg" alt="簡報第 11 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-12.jpg" alt="簡報第 12 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-13.jpg" alt="簡報第 13 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-14.jpg" alt="簡報第 14 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-15.jpg" alt="簡報第 15 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-16.jpg" alt="簡報第 16 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-17.jpg" alt="簡報第 17 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-18.jpg" alt="簡報第 18 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-19.jpg" alt="簡報第 19 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-20.jpg" alt="簡報第 20 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-21.jpg" alt="簡報第 21 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-22.jpg" alt="簡報第 22 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-23.jpg" alt="簡報第 23 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-24.jpg" alt="簡報第 24 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-25.jpg" alt="簡報第 25 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-26.jpg" alt="簡報第 26 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-27.jpg" alt="簡報第 27 頁" loading="lazy" draggable="false" />
+                <img src="assets/slides/slide-28.jpg" alt="簡報第 28 頁" loading="lazy" draggable="false" />
+              </div>
+              <button class="carousel-button next" type="button" data-carousel-next aria-label="下一頁">›</button>
+            </div>
+            <div class="carousel-footer">
+              <span class="carousel-status" data-carousel-status>1 / 28</span>
+              <div class="carousel-dots" data-carousel-dots aria-label="簡報頁面切換"></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section document-section" id="extra">
+        <div class="section-heading">
+          <p class="eyebrow">04 / Extra</p>
+          <h2>補充展示資料</h2>
+          <p>補充展場展示資訊，協助觀眾從不同角度理解作品應用情境與展示配置。</p>
+        </div>
+        <article class="document-card">
+          <div class="document-toolbar">
+            <div>
+              <span class="card-label">補充資料</span>
+              <h3>補充展示圖</h3>
+            </div>
+            <span class="page-mode">展示資料</span>
+          </div>
+          <div class="image-gallery extra-gallery" aria-label="補充資料圖片展示">
+            <img src="assets/extra/extra-01.jpg" alt="補充展示資料" loading="lazy" draggable="false" />
+          </div>
+        </article>
+      </section>
+
+      <section class="section algorithm-section" id="algorithm">
+        <div class="section-heading">
+          <p class="eyebrow">05 / Algorithm</p>
+          <h2>演算法流程展示</h2>
+          <p>系統由資料輸入開始，經過前處理與核心分析後，輸出可用於判讀、展示與決策的結果。</p>
+        </div>
+
+        <div class="flow-grid" aria-label="演算法流程">
+          <article class="flow-card">
+            <span>步驟 01</span>
+            <h3>資料輸入</h3>
+            <p>收集使用者或感測來源資料，完成格式確認與基本欄位檢查。</p>
+          </article>
+          <article class="flow-card">
+            <span>步驟 02</span>
+            <h3>前處理</h3>
+            <p>進行去雜訊、標準化、缺漏值處理與特徵整理，降低資料偏差。</p>
+          </article>
+          <article class="flow-card">
+            <span>步驟 03</span>
+            <h3>核心判斷</h3>
+            <p>依據模型、規則或門檻值進行分類、預測或風險評估。</p>
+          </article>
+          <article class="flow-card">
+            <span>步驟 04</span>
+            <h3>結果輸出</h3>
+            <p>將判斷結果轉成可理解的圖表、提醒或建議，支援後續決策。</p>
+          </article>
+        </div>
+
+        <div class="pipeline">
+          <div class="pipeline-node">資料輸入</div>
+          <div class="pipeline-line"></div>
+          <div class="pipeline-node">資料前處理</div>
+          <div class="pipeline-line"></div>
+          <div class="pipeline-node">核心分析</div>
+          <div class="pipeline-line"></div>
+          <div class="pipeline-node">結果輸出</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>全國專題競賽作品展示頁</p>
+      <a href="#top">回到頂部</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

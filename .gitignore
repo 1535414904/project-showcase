@@ -1,0 +1,6 @@
+# Keep original PDFs local. The website uses rendered images in assets/.
+*.pdf
+
+# Common local/system files
+.DS_Store
+Thumbs.db
