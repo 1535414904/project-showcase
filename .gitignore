@@ -4,3 +4,6 @@
 # Common local/system files
 .DS_Store
 Thumbs.db
+
+# Local portable tools
+tools/
