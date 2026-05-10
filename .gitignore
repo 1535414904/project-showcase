@@ -1,5 +1,6 @@
 # Keep original PDFs local. The website uses rendered images in assets/.
 *.pdf
+*.pptx
 
 # Common local/system files
 .DS_Store

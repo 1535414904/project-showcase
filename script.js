@@ -15,7 +15,7 @@ const siteConfig = {
     eyebrow: "全國專題競賽展示頁",
     title: "自適應模擬退火方法應用於手術排程系統設計與實作 - 作品導覽",
     description:
-      "本頁整合介紹影片、A1 海報、競賽簡報、補充資料與聯絡方式，適合放在名片、展場桌牌或口頭簡報結尾，讓評審與觀眾可以快速延伸閱讀。",
+      "本頁整合介紹影片、網頁版資料、競賽簡報、補充資料與聯絡方式，適合放在名片、展場桌牌或口頭簡報結尾，讓評審與觀眾可以快速延伸閱讀。",
     primaryButton: "開始瀏覽",
     secondaryButton: "查看簡報展示",
   },
@@ -33,8 +33,8 @@ const siteConfig = {
     },
     poster: {
       eyebrow: "03 / Poster",
-      title: "A1 海報展示",
-      description: "以逐頁方式呈現海報內容，方便在手機與桌機上快速瀏覽作品架構與研究成果。",
+      title: "網頁版資料展示",
+      description: "以逐頁方式呈現新版 PDF 內容，方便在手機與桌機上快速瀏覽作品架構與研究成果。",
     },
     slides: {
       eyebrow: "04 / Slides",
@@ -82,14 +82,14 @@ const siteConfig = {
     placeholderText: "影片內容載入中",
   },
   poster: {
-    cardLabel: "海報展示",
-    cardTitle: "A1 海報展示",
-    pageMode: "1 至 3 頁",
+    cardLabel: "網頁版資料",
+    cardTitle: "網頁版_【全國專題競賽】簡報",
+    pageMode: "1 至 25 頁",
   },
   slides: {
     cardLabel: "簡報展示",
     cardTitle: "競賽簡報展示",
-    pageMode: "1 至 28 頁",
+    pageMode: "1 至 25 頁",
   },
   extra: {
     cardLabel: "補充資料",
@@ -101,22 +101,17 @@ const siteConfig = {
       {
         label: "專題名稱",
         title: "自適應模擬退火方法應用於手術排程系統設計與實作",
-        description: "可放完整專題名稱、競賽組別或作品一句話簡介。",
+        description: "結合自適應模擬退火與互動式排程介面，打造兼具智慧決策、彈性調整與臨床實證的智能手術排程管理系統。",
       },
       {
         label: "團隊資訊",
-        title: "學校 / 科系 / 團隊名稱",
-        description: "可放學校、科系、指導老師、組員姓名。",
+        title: "國立高雄科技大學 / 電腦與通訊工程系 / 資料探勘與最佳化實驗室",
+        description: "- 江傳文 教授\n- 王昱琪 大學生\n- 王晴葳 大學生 \n- 林永濬 大學生",
       },
       {
         label: "聯絡方式",
-        title: "email@example.com",
-        description: "可放 Email、電話、Line ID 或其他希望評審聯繫的方式。",
-      },
-      {
-        label: "作品連結",
-        title: "GitHub / Demo / QR Code",
-        description: "可放程式碼、系統展示、簡報檔或 QR Code 指向的公開連結。",
+        title: "E-mail",
+        description: "CCW@nkust.edu.tw",
       },
     ],
   },
