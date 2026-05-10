@@ -1,7 +1,7 @@
 const siteConfig = {
   // 你要修改網站內容時，優先改這一區。
-  siteTitle: "全國專題競賽作品展示",
-  siteDescription: "全國專題競賽作品展示頁，整合影片、海報、簡報、事蹟與聯絡方式。",
+  siteTitle: "自適應模擬退火方法應用於手術排程系統設計與實作",
+  siteDescription: "自適應模擬退火方法應用於手術排程系統設計與實作，整合影片、海報、簡報、事蹟與聯絡方式。",
   youtubeUrl: "https://youtu.be/ia96zwjq1Qg",
   nav: {
     overview: "總覽",
@@ -12,44 +12,35 @@ const siteConfig = {
     contact: "聯絡",
   },
   hero: {
-    eyebrow: "全國專題競賽展示頁",
-    title: "自適應模擬退火方法應用於手術排程系統設計與實作 - 作品導覽",
+    title: "自適應模擬退火方法應用於手術排程系統設計與實作",
     description:
-      "本頁整合作品總覽、介紹影片、海報、簡報、事蹟時間軸與聯絡方式，讓評審與觀眾可以快速掌握手術排程系統的設計重點與展示成果。",
+      "結合自適應模擬退火與互動式排程介面，打造兼具智慧決策、彈性調整與臨床實證的智能手術排程管理系統。",
     primaryButton: "開始瀏覽",
-    secondaryButton: "作品導覽",
   },
   sections: {
     overview: {
       eyebrow: "01 / Overview",
       title: "作品總覽",
-      description: "整理問題背景、解決方法與成果亮點，讓評審先快速理解作品想解決的手術排程痛點與系統價值。",
     },
     video: {
       eyebrow: "02 / Video",
       title: "作品影片",
-      description:
-        "透過影片快速掌握作品動機、系統設計與實際展示成果，作為瀏覽完整資料前的重點導覽。",
     },
     poster: {
       eyebrow: "03 / Poster",
       title: "海報",
-      description: "以逐頁方式呈現海報內容，方便在手機與桌機上快速瀏覽作品架構與研究成果。",
     },
     slides: {
       eyebrow: "04 / Slides",
       title: "簡報",
-      description: "整理競賽簡報重點，涵蓋問題背景、系統架構、實作方法、展示成果與未來發展。",
     },
     achievements: {
       eyebrow: "05 / Achievements",
       title: "事蹟",
-      description: "獎狀與參賽紀錄先保留為時間軸版型，之後可直接在 script.js 補上年份、獎項與說明。",
     },
     contact: {
       eyebrow: "06 / Contact",
       title: "聯絡與作品資訊",
-      description: "整理評審或觀眾延伸聯繫時會需要的資訊，內容都可以在 script.js 開頭直接修改。",
     },
   },
   overview: {
@@ -81,23 +72,37 @@ const siteConfig = {
     placeholderTitle: "作品介紹影片",
     placeholderText: "影片內容載入中",
   },
-  poster: {
-    pageMode: "1 至 3 頁",
-  },
-  slides: {
-    pageMode: "1 至 25 頁",
-  },
   achievements: {
     items: [
       {
-        date: "待補日期",
-        title: "獎狀或參賽事蹟",
-        description: "之後提供獎狀圖片後，可放獎項名稱、競賽名稱與簡短說明。",
+        date: "",
+        title: "系專題第二名",
+        description: "系上專題競賽獲獎紀錄。",
+        image: "assets/achievements/achievement-01.jpg",
       },
       {
-        date: "待補日期",
-        title: "獎狀或參賽事蹟",
-        description: "可依照時間順序新增更多項目，讓評審快速看到作品歷程。",
+        date: "",
+        title: "院專題獎狀",
+        description: "院級專題競賽獲獎紀錄。",
+        image: "assets/achievements/achievement-02.jpg",
+      },
+      {
+        date: "",
+        title: "IP6-07 第一名",
+        description: "外部競賽第一名獲獎紀錄。",
+        image: "assets/achievements/achievement-03.jpg",
+      },
+      {
+        date: "",
+        title: "Landseed-02 第一名",
+        description: "外部競賽第一名獲獎紀錄。",
+        image: "assets/achievements/achievement-04.jpg",
+      },
+      {
+        date: "",
+        title: "手術排程佳作論文獎",
+        description: "手術排程相關論文獎項紀錄。",
+        image: "assets/achievements/achievement-05.jpg",
       },
     ],
   },
@@ -121,7 +126,7 @@ const siteConfig = {
     ],
   },
   footer: {
-    text: "全國專題競賽作品展示頁",
+    text: "自適應模擬退火方法應用於手術排程系統設計與實作",
     backToTop: "回到頂部",
   },
 };
@@ -150,6 +155,33 @@ document.querySelectorAll("[data-content]").forEach((element) => {
     element.textContent = value;
   }
 });
+
+const achievementsList = document.querySelector("[data-achievements-list]");
+
+if (achievementsList) {
+  achievementsList.innerHTML = "";
+
+  siteConfig.achievements.items.forEach((item) => {
+    const article = document.createElement("article");
+    article.className = "timeline-item";
+
+    const date = item.date ? `<span>${item.date}</span>` : "";
+    const image = item.image
+      ? `<img class="timeline-image" src="${item.image}" alt="${item.title}" loading="lazy" draggable="false" />`
+      : "";
+
+    article.innerHTML = `
+      <div class="timeline-copy">
+        ${date}
+        <h3>${item.title}</h3>
+        <p>${item.description}</p>
+      </div>
+      ${image}
+    `;
+
+    achievementsList.append(article);
+  });
+}
 
 function getYoutubeEmbedUrl(url) {
   if (!url) return "";
@@ -194,6 +226,7 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   const prevButton = carousel.querySelector("[data-carousel-prev]");
   const nextButton = carousel.querySelector("[data-carousel-next]");
   const status = carousel.querySelector("[data-carousel-status]");
+  const pageMode = carousel.closest(".document-card")?.querySelector("[data-carousel-page-mode]");
   const dotsContainer = carousel.querySelector("[data-carousel-dots]");
   let currentIndex = 0;
   let touchStartX = 0;
@@ -213,8 +246,13 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
 
   function setSlide(index) {
     currentIndex = (index + slides.length) % slides.length;
+    const pageLabel = `第 ${currentIndex + 1} 頁，共 ${slides.length} 頁`;
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
-    status.textContent = `${currentIndex + 1} / ${slides.length}`;
+    status.textContent = pageLabel;
+
+    if (pageMode) {
+      pageMode.textContent = pageLabel;
+    }
 
     dots.forEach((dot, dotIndex) => {
       dot.setAttribute("aria-current", String(dotIndex === currentIndex));

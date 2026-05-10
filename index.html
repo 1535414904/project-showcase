@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="全國專題競賽作品展示頁，整合影片、海報、簡報、事蹟與聯絡方式。"
+      content="自適應模擬退火方法應用於手術排程系統設計與實作，整合影片、海報、簡報、事蹟與聯絡方式。"
     />
-    <title data-content="siteTitle">全國專題競賽作品展示</title>
+    <title data-content="siteTitle">自適應模擬退火方法應用於手術排程系統設計與實作</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,7 +19,6 @@
   <body>
     <header class="hero" id="top">
       <nav class="nav" aria-label="主要導覽">
-        <a class="brand" href="#top" data-content="siteTitle">全國專題競賽作品展示</a>
         <div class="nav-links">
           <a href="#overview" data-content="nav.overview">總覽</a>
           <a href="#video" data-content="nav.video">影片</a>
@@ -32,16 +31,12 @@
 
       <div class="hero-grid">
         <section class="hero-copy">
-          <p class="eyebrow" data-content="hero.eyebrow">全國專題競賽展示頁</p>
           <h1 data-content="hero.title">把作品重點濃縮成一個 QR Code 就能抵達的完整展示空間</h1>
           <p class="hero-text" data-content="hero.description">
             本頁整合作品總覽、介紹影片、海報、簡報、事蹟時間軸與聯絡方式，讓評審與觀眾可以快速掌握手術排程系統的設計重點與展示成果。
           </p>
           <div class="hero-actions">
             <a class="button primary" href="#overview" data-content="hero.primaryButton">開始瀏覽</a>
-            <a class="button ghost" href="#overview">
-              <span data-content="hero.secondaryButton">作品導覽</span>
-            </a>
           </div>
         </section>
       </div>
@@ -52,7 +47,6 @@
         <div class="section-heading">
           <p class="eyebrow" data-content="sections.overview.eyebrow">01 / Overview</p>
           <h2 data-content="sections.overview.title">作品總覽</h2>
-          <p data-content="sections.overview.description">先整理專題名稱、問題背景、解決方法、成果亮點與展示素材，讓評審能快速掌握整體架構。</p>
         </div>
 
         <div class="overview-grid" aria-label="作品總覽">
@@ -83,9 +77,6 @@
         <div class="section-heading">
           <p class="eyebrow" data-content="sections.video.eyebrow">02 / Video</p>
           <h2 data-content="sections.video.title">作品影片</h2>
-          <p data-content="sections.video.description">
-            透過影片快速掌握作品動機、系統設計與實際展示成果，作為瀏覽完整資料前的重點導覽。
-          </p>
         </div>
         <div class="video-shell" data-youtube-player>
           <div class="video-placeholder">
@@ -100,11 +91,10 @@
         <div class="section-heading">
           <p class="eyebrow" data-content="sections.poster.eyebrow">03 / Poster</p>
           <h2 data-content="sections.poster.title">海報</h2>
-          <p data-content="sections.poster.description">以逐頁方式呈現新版海報內容，方便在手機與桌機上快速瀏覽作品架構與研究成果。</p>
         </div>
         <article class="document-card">
           <div class="document-toolbar">
-            <span class="page-mode" data-content="poster.pageMode">1 至 3 頁</span>
+            <span class="page-mode" data-carousel-page-mode>第 1 頁，共 3 頁</span>
           </div>
           <div class="carousel poster-carousel" data-carousel aria-label="海報圖片展示">
             <div class="carousel-viewport">
@@ -128,11 +118,10 @@
         <div class="section-heading">
           <p class="eyebrow" data-content="sections.slides.eyebrow">04 / Slides</p>
           <h2 data-content="sections.slides.title">簡報</h2>
-          <p data-content="sections.slides.description">整理競賽簡報重點，涵蓋問題背景、系統架構、實作方法、展示成果與未來發展。</p>
         </div>
         <article class="document-card">
           <div class="document-toolbar">
-            <span class="page-mode" data-content="slides.pageMode">1 至 25 頁</span>
+            <span class="page-mode" data-carousel-page-mode>第 1 頁，共 25 頁</span>
           </div>
           <div class="carousel slide-carousel" data-carousel aria-label="簡報圖片展示">
             <div class="carousel-viewport">
@@ -178,27 +167,14 @@
         <div class="section-heading">
           <p class="eyebrow" data-content="sections.achievements.eyebrow">05 / Achievements</p>
           <h2 data-content="sections.achievements.title">事蹟</h2>
-          <p data-content="sections.achievements.description">獎狀與參賽紀錄先保留為時間軸版型，之後可直接在 script.js 補上年份、獎項與說明。</p>
         </div>
-        <div class="timeline" aria-label="事蹟時間軸">
-          <article class="timeline-item">
-            <span data-content="achievements.items.0.date">待補日期</span>
-            <h3 data-content="achievements.items.0.title">獎狀或參賽事蹟</h3>
-            <p data-content="achievements.items.0.description">之後提供獎狀圖片後，可放獎項名稱、競賽名稱與簡短說明。</p>
-          </article>
-          <article class="timeline-item">
-            <span data-content="achievements.items.1.date">待補日期</span>
-            <h3 data-content="achievements.items.1.title">獎狀或參賽事蹟</h3>
-            <p data-content="achievements.items.1.description">可依照時間順序新增更多項目，讓評審快速看到作品歷程。</p>
-          </article>
-        </div>
+        <div class="timeline" aria-label="事蹟時間軸" data-achievements-list></div>
       </section>
 
       <section class="section contact-section" id="contact">
         <div class="section-heading">
           <p class="eyebrow" data-content="sections.contact.eyebrow">06 / Contact</p>
           <h2 data-content="sections.contact.title">聯絡與作品資訊</h2>
-          <p data-content="sections.contact.description">整理評審或觀眾延伸聯繫時會需要的資訊，內容都可以在 script.js 開頭直接修改。</p>
         </div>
 
         <div class="contact-grid" aria-label="聯絡與作品資訊">
@@ -224,7 +200,7 @@
     <a class="back-to-top" href="#top" aria-label="回到最上面" data-content="footer.backToTop">回到頂部</a>
 
     <footer class="footer">
-      <p data-content="footer.text">全國專題競賽作品展示頁</p>
+      <p data-content="footer.text">自適應模擬退火方法應用於手術排程系統設計與實作</p>
     </footer>
 
     <script src="script.js"></script>
