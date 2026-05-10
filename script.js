@@ -121,7 +121,7 @@ const siteConfig = {
       {
         label: "聯絡方式",
         title: "E-mail",
-        description: "CCW@nkust.edu.tw",
+        description: "ccw@nkust.edu.tw",
       },
     ],
   },
