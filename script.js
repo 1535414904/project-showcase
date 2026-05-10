@@ -82,13 +82,9 @@ const siteConfig = {
     placeholderText: "影片內容載入中",
   },
   poster: {
-    cardLabel: "海報",
-    cardTitle: "海報",
     pageMode: "1 至 3 頁",
   },
   slides: {
-    cardLabel: "簡報",
-    cardTitle: "簡報",
     pageMode: "1 至 25 頁",
   },
   achievements: {
@@ -140,6 +136,13 @@ const metaDescription = document.querySelector('meta[name="description"]');
 if (metaDescription) {
   metaDescription.setAttribute("content", siteConfig.siteDescription);
 }
+
+function updateScrollControls() {
+  document.body.classList.toggle("is-scrolled", window.scrollY > 80);
+}
+
+window.addEventListener("scroll", updateScrollControls, { passive: true });
+updateScrollControls();
 
 document.querySelectorAll("[data-content]").forEach((element) => {
   const value = getConfigValue(element.dataset.content);
