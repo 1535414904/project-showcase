@@ -200,7 +200,8 @@ h3 {
 
 .document-card,
 .video-shell,
-.info-card {
+.info-card,
+.timeline-item {
   border: 4px solid var(--paper);
   background: var(--paper);
   box-shadow: var(--shadow);
@@ -320,8 +321,7 @@ h3 {
   -webkit-user-drag: none;
 }
 
-.poster-gallery,
-.extra-gallery {
+.poster-gallery {
   max-height: 86vh;
 }
 
@@ -483,10 +483,66 @@ h3 {
   white-space: pre-line;
 }
 
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  padding-left: 1.4rem;
+}
+
+.timeline::before {
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 0;
+  width: 5px;
+  border-radius: 999px;
+  content: "";
+  background: var(--amber);
+}
+
+.timeline-item {
+  position: relative;
+  min-height: 10rem;
+  padding: 1.25rem;
+  border-radius: 8px;
+}
+
+.timeline-item::before {
+  position: absolute;
+  top: 1.35rem;
+  left: calc(-1.4rem - 9px);
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 4px solid var(--paper);
+  border-radius: 50%;
+  content: "";
+  background: var(--red);
+}
+
+.timeline-item span {
+  display: inline-flex;
+  margin-bottom: 0.7rem;
+  color: var(--blue);
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  font-weight: 900;
+}
+
+.timeline-item h3,
+.timeline-item p {
+  color: var(--ink);
+}
+
+.timeline-item p {
+  margin-bottom: 0;
+  font-size: clamp(1rem, 1.55vw, 1.13rem);
+  line-height: 1.75;
+}
+
 .footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1rem;
   max-width: 1180px;
   margin: 0 auto;
@@ -548,7 +604,8 @@ h3 {
   }
 
   .overview-grid,
-  .contact-grid {
+  .contact-grid,
+  .timeline {
     grid-template-columns: 1fr;
   }
 

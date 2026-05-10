@@ -1,29 +1,29 @@
 const siteConfig = {
   // 你要修改網站內容時，優先改這一區。
   siteTitle: "全國專題競賽作品展示",
-  siteDescription: "全國專題競賽作品展示頁，整合影片、海報、簡報、補充資料與聯絡方式。",
+  siteDescription: "全國專題競賽作品展示頁，整合影片、海報、簡報、事蹟與聯絡方式。",
   youtubeUrl: "https://youtu.be/ia96zwjq1Qg",
   nav: {
     overview: "總覽",
     video: "影片",
     poster: "海報",
     slides: "簡報",
-    extra: "補充",
+    achievements: "事蹟",
     contact: "聯絡",
   },
   hero: {
     eyebrow: "全國專題競賽展示頁",
     title: "自適應模擬退火方法應用於手術排程系統設計與實作 - 作品導覽",
     description:
-      "本頁整合介紹影片、網頁版海報、競賽簡報、補充資料與聯絡方式，適合放在名片、展場桌牌或口頭簡報結尾，讓評審與觀眾可以快速延伸閱讀。",
+      "本頁整合作品總覽、介紹影片、海報、簡報、事蹟時間軸與聯絡方式，讓評審與觀眾可以快速掌握手術排程系統的設計重點與展示成果。",
     primaryButton: "開始瀏覽",
-    secondaryButton: "查看簡報展示",
+    secondaryButton: "作品導覽",
   },
   sections: {
     overview: {
       eyebrow: "01 / Overview",
       title: "作品總覽",
-      description: "先整理專題名稱、問題背景、解決方法、成果亮點與展示素材，讓評審能快速掌握整體架構。",
+      description: "整理問題背景、解決方法與成果亮點，讓評審先快速理解作品想解決的手術排程痛點與系統價值。",
     },
     video: {
       eyebrow: "02 / Video",
@@ -33,18 +33,18 @@ const siteConfig = {
     },
     poster: {
       eyebrow: "03 / Poster",
-      title: "網頁版海報展示",
-      description: "以逐頁方式呈現新版海報內容，方便在手機與桌機上快速瀏覽作品架構與研究成果。",
+      title: "海報",
+      description: "以逐頁方式呈現海報內容，方便在手機與桌機上快速瀏覽作品架構與研究成果。",
     },
     slides: {
       eyebrow: "04 / Slides",
-      title: "簡報展示",
+      title: "簡報",
       description: "整理競賽簡報重點，涵蓋問題背景、系統架構、實作方法、展示成果與未來發展。",
     },
-    extra: {
-      eyebrow: "05 / Extra",
-      title: "補充展示資料",
-      description: "補充展場展示資訊，協助觀眾從不同角度理解作品應用情境與展示配置。",
+    achievements: {
+      eyebrow: "05 / Achievements",
+      title: "事蹟",
+      description: "獎狀與參賽紀錄先保留為時間軸版型，之後可直接在 script.js 補上年份、獎項與說明。",
     },
     contact: {
       eyebrow: "06 / Contact",
@@ -57,22 +57,22 @@ const siteConfig = {
       {
         label: "專題名稱",
         title: "自適應模擬退火方法應用於手術排程系統設計與實作",
-        description: "用一句話說明作品主題與應用情境。",
+        description: "以手術室排程為應用場域，整合最佳化演算法與互動式系統，協助產生可調整、可比較的排程結果。",
       },
       {
         label: "問題背景",
         title: "手術排程容易受加班、超時與資源配置影響",
-        description: "說明作品想解決的痛點、使用者與現場情境。",
+        description: "醫療現場需同時考量手術時間、醫師安排、手術室資源與臨床限制，人工排程容易耗時且難以兼顧整體品質。",
       },
       {
         label: "解決方法",
         title: "以自適應模擬退火改善排程穩定性",
-        description: "說明核心方法、系統功能與作品特色。",
+        description: "透過自適應模擬退火方法搜尋較佳排程，並以系統介面呈現排程結果、衝突資訊與調整依據。",
       },
       {
         label: "成果亮點",
         title: "降低排程衝突並提升展示與決策效率",
-        description: "放量化成果、展示結果、競賽亮點或使用價值。",
+        description: "作品可輔助手術排程規劃、縮短人工比較時間，並用視覺化方式展示演算法結果與臨床決策參考。",
       },
     ],
   },
@@ -82,19 +82,28 @@ const siteConfig = {
     placeholderText: "影片內容載入中",
   },
   poster: {
-    cardLabel: "網頁版海報",
-    cardTitle: "網頁版_【全國專題競賽】海報",
+    cardLabel: "海報",
+    cardTitle: "海報",
     pageMode: "1 至 3 頁",
   },
   slides: {
-    cardLabel: "簡報展示",
-    cardTitle: "競賽簡報展示",
+    cardLabel: "簡報",
+    cardTitle: "簡報",
     pageMode: "1 至 25 頁",
   },
-  extra: {
-    cardLabel: "補充資料",
-    cardTitle: "補充展示圖",
-    pageMode: "展示資料",
+  achievements: {
+    items: [
+      {
+        date: "待補日期",
+        title: "獎狀或參賽事蹟",
+        description: "之後提供獎狀圖片後，可放獎項名稱、競賽名稱與簡短說明。",
+      },
+      {
+        date: "待補日期",
+        title: "獎狀或參賽事蹟",
+        description: "可依照時間順序新增更多項目，讓評審快速看到作品歷程。",
+      },
+    ],
   },
   contact: {
     cards: [
