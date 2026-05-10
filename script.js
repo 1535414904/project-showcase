@@ -15,7 +15,7 @@ const siteConfig = {
     eyebrow: "全國專題競賽展示頁",
     title: "自適應模擬退火方法應用於手術排程系統設計與實作 - 作品導覽",
     description:
-      "本頁整合介紹影片、網頁版資料、競賽簡報、補充資料與聯絡方式，適合放在名片、展場桌牌或口頭簡報結尾，讓評審與觀眾可以快速延伸閱讀。",
+      "本頁整合介紹影片、網頁版海報、競賽簡報、補充資料與聯絡方式，適合放在名片、展場桌牌或口頭簡報結尾，讓評審與觀眾可以快速延伸閱讀。",
     primaryButton: "開始瀏覽",
     secondaryButton: "查看簡報展示",
   },
@@ -33,8 +33,8 @@ const siteConfig = {
     },
     poster: {
       eyebrow: "03 / Poster",
-      title: "網頁版資料展示",
-      description: "以逐頁方式呈現新版 PDF 內容，方便在手機與桌機上快速瀏覽作品架構與研究成果。",
+      title: "網頁版海報展示",
+      description: "以逐頁方式呈現新版海報內容，方便在手機與桌機上快速瀏覽作品架構與研究成果。",
     },
     slides: {
       eyebrow: "04 / Slides",
@@ -82,9 +82,9 @@ const siteConfig = {
     placeholderText: "影片內容載入中",
   },
   poster: {
-    cardLabel: "網頁版資料",
-    cardTitle: "網頁版_【全國專題競賽】簡報",
-    pageMode: "1 至 25 頁",
+    cardLabel: "網頁版海報",
+    cardTitle: "網頁版_【全國專題競賽】海報",
+    pageMode: "1 至 3 頁",
   },
   slides: {
     cardLabel: "簡報展示",
