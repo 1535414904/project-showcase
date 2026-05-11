@@ -420,8 +420,14 @@ h3 {
   line-height: 1;
   transform: translateY(-50%);
   transition:
+    opacity 180ms ease,
     background 180ms ease,
     transform 180ms ease;
+}
+
+.carousel.is-controls-hidden .carousel-button {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .carousel-button:hover {

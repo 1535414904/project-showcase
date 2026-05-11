@@ -253,11 +253,12 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   const prevButton = carousel.querySelector("[data-carousel-prev]");
   const nextButton = carousel.querySelector("[data-carousel-next]");
   const status = carousel.querySelector("[data-carousel-status]");
-  const pageMode = carousel.closest(".document-card")?.querySelector("[data-carousel-page-mode]");
   const dotsContainer = carousel.querySelector("[data-carousel-dots]");
+  const viewport = carousel.querySelector(".carousel-viewport");
   let currentIndex = 0;
   let touchStartX = 0;
   let touchStartY = 0;
+  let controlsTimer = 0;
 
   if (!track || slides.length === 0) return;
 
@@ -277,17 +278,42 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
     status.textContent = pageLabel;
 
-    if (pageMode) {
-      pageMode.textContent = pageLabel;
-    }
-
     dots.forEach((dot, dotIndex) => {
       dot.setAttribute("aria-current", String(dotIndex === currentIndex));
     });
   }
 
-  prevButton?.addEventListener("click", () => setSlide(currentIndex - 1));
-  nextButton?.addEventListener("click", () => setSlide(currentIndex + 1));
+  function showControls() {
+    carousel.classList.remove("is-controls-hidden");
+  }
+
+  function hideControls() {
+    carousel.classList.add("is-controls-hidden");
+  }
+
+  function showControlsBriefly() {
+    showControls();
+    window.clearTimeout(controlsTimer);
+    controlsTimer = window.setTimeout(hideControls, 1400);
+  }
+
+  prevButton?.addEventListener("click", () => {
+    setSlide(currentIndex - 1);
+    showControlsBriefly();
+  });
+
+  nextButton?.addEventListener("click", () => {
+    setSlide(currentIndex + 1);
+    showControlsBriefly();
+  });
+
+  viewport?.addEventListener("mousemove", () => {
+    showControlsBriefly();
+  });
+
+  viewport?.addEventListener("mouseleave", () => {
+    hideControls();
+  });
 
   carousel.addEventListener(
     "touchstart",
@@ -307,6 +333,7 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
       const deltaY = touch.clientY - touchStartY;
 
       if (Math.abs(deltaX) < 45 || Math.abs(deltaX) < Math.abs(deltaY)) return;
+      showControlsBriefly();
       setSlide(currentIndex + (deltaX < 0 ? 1 : -1));
     },
     { passive: true },
@@ -319,6 +346,7 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
 
   carousel.tabIndex = 0;
   setSlide(0);
+  hideControls();
 });
 
 document.addEventListener("contextmenu", (event) => {
