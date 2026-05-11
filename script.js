@@ -466,10 +466,6 @@ function getPinchDistance(touches) {
   return Math.hypot(first.clientX - second.clientX, first.clientY - second.clientY);
 }
 
-document.querySelectorAll(".carousel-track img").forEach((image) => {
-  image.addEventListener("click", () => openZoomViewer(image));
-});
-
 zoomClose.addEventListener("click", closeZoomViewer);
 zoomIn.addEventListener("click", () => setZoomScale(zoomScale + 0.5));
 zoomOut.addEventListener("click", () => setZoomScale(zoomScale - 0.5));

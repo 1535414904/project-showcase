@@ -397,7 +397,6 @@ h3 {
   height: 100%;
   padding: clamp(0.55rem, 2vw, 1rem);
   object-fit: contain;
-  cursor: zoom-in;
   user-select: none;
   -webkit-user-drag: none;
 }
