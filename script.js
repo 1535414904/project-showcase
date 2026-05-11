@@ -259,6 +259,7 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   let touchStartX = 0;
   let touchStartY = 0;
   let controlsTimer = 0;
+  let isPinching = false;
 
   if (!track || slides.length === 0) return;
 
@@ -318,6 +319,12 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   carousel.addEventListener(
     "touchstart",
     (event) => {
+      if (event.touches.length > 1) {
+        isPinching = true;
+        return;
+      }
+
+      isPinching = false;
       const touch = event.changedTouches[0];
       touchStartX = touch.clientX;
       touchStartY = touch.clientY;
@@ -326,8 +333,28 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   );
 
   carousel.addEventListener(
+    "touchmove",
+    (event) => {
+      if (event.touches.length > 1) {
+        isPinching = true;
+        showControlsBriefly();
+      }
+    },
+    { passive: true },
+  );
+
+  carousel.addEventListener(
     "touchend",
     (event) => {
+      if (isPinching) {
+        if (event.touches.length === 0) {
+          window.setTimeout(() => {
+            isPinching = false;
+          }, 0);
+        }
+        return;
+      }
+
       const touch = event.changedTouches[0];
       const deltaX = touch.clientX - touchStartX;
       const deltaY = touch.clientY - touchStartY;

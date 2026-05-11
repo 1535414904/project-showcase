@@ -377,7 +377,7 @@ h3 {
   height: min(78svh, 780px);
   min-height: 320px;
   overflow: hidden;
-  touch-action: pan-y;
+  touch-action: pan-y pinch-zoom;
 }
 
 .poster-carousel .carousel-viewport {
