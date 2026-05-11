@@ -376,6 +376,182 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   hideControls();
 });
 
+const zoomViewer = document.createElement("div");
+zoomViewer.className = "zoom-viewer";
+zoomViewer.setAttribute("aria-hidden", "true");
+zoomViewer.innerHTML = `
+  <div class="zoom-toolbar">
+    <button class="zoom-button" type="button" data-zoom-out aria-label="縮小">-</button>
+    <button class="zoom-button" type="button" data-zoom-reset aria-label="重設大小">1:1</button>
+    <button class="zoom-button" type="button" data-zoom-in aria-label="放大">+</button>
+    <button class="zoom-button" type="button" data-zoom-close aria-label="關閉">×</button>
+  </div>
+  <div class="zoom-canvas" data-zoom-canvas>
+    <img class="zoom-image" alt="" draggable="false" data-zoom-image />
+  </div>
+`;
+document.body.append(zoomViewer);
+
+const zoomCanvas = zoomViewer.querySelector("[data-zoom-canvas]");
+const zoomImage = zoomViewer.querySelector("[data-zoom-image]");
+const zoomClose = zoomViewer.querySelector("[data-zoom-close]");
+const zoomIn = zoomViewer.querySelector("[data-zoom-in]");
+const zoomOut = zoomViewer.querySelector("[data-zoom-out]");
+const zoomReset = zoomViewer.querySelector("[data-zoom-reset]");
+let zoomScale = 1;
+let zoomX = 0;
+let zoomY = 0;
+let dragStartX = 0;
+let dragStartY = 0;
+let startZoomX = 0;
+let startZoomY = 0;
+let startPinchDistance = 0;
+let startPinchScale = 1;
+let isDraggingZoom = false;
+
+function clampZoom(value) {
+  return Math.min(Math.max(value, 1), 4);
+}
+
+function renderZoom() {
+  zoomImage.style.transform = `translate(calc(-50% + ${zoomX}px), calc(-50% + ${zoomY}px)) scale(${zoomScale})`;
+}
+
+function setZoomScale(nextScale) {
+  zoomScale = clampZoom(nextScale);
+
+  if (zoomScale === 1) {
+    zoomX = 0;
+    zoomY = 0;
+  }
+
+  renderZoom();
+}
+
+function openZoomViewer(image) {
+  zoomImage.src = image.currentSrc || image.src;
+  zoomImage.alt = image.alt || "放大圖片";
+  zoomScale = 1;
+  zoomX = 0;
+  zoomY = 0;
+  renderZoom();
+  zoomViewer.classList.add("is-open");
+  zoomViewer.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeZoomViewer() {
+  zoomViewer.classList.remove("is-open");
+  zoomViewer.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+  isDraggingZoom = false;
+  zoomCanvas.classList.remove("is-dragging");
+}
+
+function getPinchDistance(touches) {
+  const first = touches[0];
+  const second = touches[1];
+  return Math.hypot(first.clientX - second.clientX, first.clientY - second.clientY);
+}
+
+document.querySelectorAll(".carousel-track img").forEach((image) => {
+  image.addEventListener("click", () => openZoomViewer(image));
+});
+
+zoomClose.addEventListener("click", closeZoomViewer);
+zoomIn.addEventListener("click", () => setZoomScale(zoomScale + 0.5));
+zoomOut.addEventListener("click", () => setZoomScale(zoomScale - 0.5));
+zoomReset.addEventListener("click", () => {
+  zoomScale = 1;
+  zoomX = 0;
+  zoomY = 0;
+  renderZoom();
+});
+
+zoomViewer.addEventListener("click", (event) => {
+  if (event.target === zoomCanvas) {
+    closeZoomViewer();
+  }
+});
+
+zoomCanvas.addEventListener("wheel", (event) => {
+  event.preventDefault();
+  setZoomScale(zoomScale + (event.deltaY < 0 ? 0.25 : -0.25));
+});
+
+zoomCanvas.addEventListener("pointerdown", (event) => {
+  if (event.pointerType === "touch") return;
+  isDraggingZoom = true;
+  dragStartX = event.clientX;
+  dragStartY = event.clientY;
+  startZoomX = zoomX;
+  startZoomY = zoomY;
+  zoomCanvas.classList.add("is-dragging");
+});
+
+window.addEventListener("pointermove", (event) => {
+  if (!isDraggingZoom) return;
+  zoomX = startZoomX + event.clientX - dragStartX;
+  zoomY = startZoomY + event.clientY - dragStartY;
+  renderZoom();
+});
+
+window.addEventListener("pointerup", () => {
+  isDraggingZoom = false;
+  zoomCanvas.classList.remove("is-dragging");
+});
+
+zoomCanvas.addEventListener(
+  "touchstart",
+  (event) => {
+    if (event.touches.length === 1) {
+      const touch = event.touches[0];
+      isDraggingZoom = true;
+      dragStartX = touch.clientX;
+      dragStartY = touch.clientY;
+      startZoomX = zoomX;
+      startZoomY = zoomY;
+    }
+
+    if (event.touches.length === 2) {
+      isDraggingZoom = false;
+      startPinchDistance = getPinchDistance(event.touches);
+      startPinchScale = zoomScale;
+    }
+  },
+  { passive: true },
+);
+
+zoomCanvas.addEventListener(
+  "touchmove",
+  (event) => {
+    event.preventDefault();
+
+    if (event.touches.length === 1 && isDraggingZoom) {
+      const touch = event.touches[0];
+      zoomX = startZoomX + touch.clientX - dragStartX;
+      zoomY = startZoomY + touch.clientY - dragStartY;
+      renderZoom();
+    }
+
+    if (event.touches.length === 2) {
+      const distance = getPinchDistance(event.touches);
+      setZoomScale(startPinchScale * (distance / startPinchDistance));
+    }
+  },
+  { passive: false },
+);
+
+zoomCanvas.addEventListener("touchend", () => {
+  isDraggingZoom = false;
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && zoomViewer.classList.contains("is-open")) {
+    closeZoomViewer();
+  }
+});
+
 document.addEventListener("contextmenu", (event) => {
   if (event.target instanceof HTMLImageElement) {
     event.preventDefault();

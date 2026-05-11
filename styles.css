@@ -397,6 +397,7 @@ h3 {
   height: 100%;
   padding: clamp(0.55rem, 2vw, 1rem);
   object-fit: contain;
+  cursor: zoom-in;
   user-select: none;
   -webkit-user-drag: none;
 }
@@ -482,6 +483,69 @@ h3 {
 .carousel-dot[aria-current="true"] {
   width: 1.5rem;
   background: var(--red);
+}
+
+.zoom-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  background: rgba(0, 31, 67, 0.94);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.zoom-viewer.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.zoom-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 0.75rem;
+}
+
+.zoom-button {
+  display: grid;
+  place-items: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border: 3px solid var(--paper);
+  border-radius: 8px;
+  color: var(--ink);
+  background: var(--amber);
+  font: inherit;
+  font-size: 1.15rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.zoom-canvas {
+  position: relative;
+  overflow: hidden;
+  touch-action: none;
+  cursor: grab;
+}
+
+.zoom-canvas.is-dragging {
+  cursor: grabbing;
+}
+
+.zoom-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 94vw;
+  max-height: 86svh;
+  transform-origin: center;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .overview-grid,
