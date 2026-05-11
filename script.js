@@ -255,6 +255,7 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   const status = carousel.querySelector("[data-carousel-status]");
   const dotsContainer = carousel.querySelector("[data-carousel-dots]");
   const viewport = carousel.querySelector(".carousel-viewport");
+  const zoomButton = document.createElement("button");
   let currentIndex = 0;
   let touchStartX = 0;
   let touchStartY = 0;
@@ -262,6 +263,12 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   let isPinching = false;
 
   if (!track || slides.length === 0) return;
+
+  zoomButton.className = "carousel-zoom-button";
+  zoomButton.type = "button";
+  zoomButton.textContent = "放大";
+  zoomButton.setAttribute("aria-label", "放大目前頁面");
+  viewport?.append(zoomButton);
 
   const dots = slides.map((_, index) => {
     const dot = document.createElement("button");
@@ -305,6 +312,11 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
 
   nextButton?.addEventListener("click", () => {
     setSlide(currentIndex + 1);
+    showControlsBriefly();
+  });
+
+  zoomButton.addEventListener("click", () => {
+    openZoomViewer(slides[currentIndex]);
     showControlsBriefly();
   });
 
@@ -373,7 +385,7 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
 
   carousel.tabIndex = 0;
   setSlide(0);
-  hideControls();
+  showControlsBriefly();
 });
 
 const zoomViewer = document.createElement("div");
