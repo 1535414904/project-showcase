@@ -126,6 +126,15 @@ a {
   animation: rise 700ms ease both;
 }
 
+.hero-group {
+  margin-bottom: 1rem;
+  color: var(--paper);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 900;
+  line-height: 1.35;
+  text-shadow: 0 3px 0 rgba(0, 45, 88, 0.44);
+}
+
 .eyebrow,
 .card-label {
   color: var(--amber);
@@ -154,6 +163,7 @@ h1 {
   color: var(--amber);
   letter-spacing: 0;
   text-shadow: 0 5px 0 rgba(0, 45, 88, 0.55);
+  white-space: pre-line;
 }
 
 h2 {
@@ -519,6 +529,7 @@ h3 {
   color: var(--ink);
 }
 
+.info-card h3,
 .info-card p {
   white-space: pre-line;
 }
@@ -575,6 +586,10 @@ h3 {
 .timeline-item h3,
 .timeline-item p {
   color: var(--ink);
+}
+
+.timeline-item h3 {
+  white-space: pre-line;
 }
 
 .timeline-item p {

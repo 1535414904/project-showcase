@@ -12,6 +12,7 @@ const siteConfig = {
     contact: "聯絡",
   },
   hero: {
+    groupLabel: "資工通訊群 C03",
     title: "自適應模擬退火方法應用於手術排程系統設計與實作",
     description:
       "結合自適應模擬退火與互動式排程介面，打造兼具智慧決策、彈性調整與臨床實證的智能手術排程管理系統。",
@@ -76,33 +77,39 @@ const siteConfig = {
     items: [
       {
         date: "",
-        title: "系專題第二名",
-        description: "系上專題競賽獲獎紀錄。",
+        title: "國立高雄科技大學\n電腦與通訊工程系\n系專題第二名",
+        // description: "系上專題競賽獲獎紀錄。",
         image: "assets/achievements/achievement-01.jpg",
       },
       {
         date: "",
-        title: "院專題獎狀",
-        description: "院級專題競賽獲獎紀錄。",
+        title: "國立高雄科技大學\n電機與資訊學院\n院專題特優",
+        // description: "院級專題競賽獲獎紀錄。",
         image: "assets/achievements/achievement-02.jpg",
       },
       {
         date: "",
-        title: "IP6-07 第一名",
-        description: "外部競賽第一名獲獎紀錄。",
+        title: "第30屆大專校院資訊應用服務創新競賽\n資訊應用組(IP6-07)\n第一名",
+        // description: "外部競賽第一名獲獎紀錄。",
         image: "assets/achievements/achievement-03.jpg",
       },
       {
         date: "",
-        title: "Landseed-02 第一名",
-        description: "外部競賽第一名獲獎紀錄。",
+        title: "第30屆大專校院資訊應用服務創新競賽\n聯新國際智慧健康照護組(Landseed-02)\n第一名",
+        // description: "外部競賽第一名獲獎紀錄。",
         image: "assets/achievements/achievement-04.jpg",
       },
       {
         date: "",
-        title: "手術排程佳作論文獎",
-        description: "手術排程相關論文獎項紀錄。",
+        title: "第18屆資訊教育與科技應用研討會\n佳作論文獎",
+        // description: "手術排程相關論文獎項紀錄。",
         image: "assets/achievements/achievement-05.jpg",
+      },
+      {
+        date: "",
+        title: "2025 國家醫療品質獎\n實證案例",
+        // description: "榮總國家醫療品質獎獲獎紀錄。",
+        image: "assets/achievements/achievement-06.jpg",
       },
     ],
   },
@@ -115,7 +122,7 @@ const siteConfig = {
       },
       {
         label: "團隊資訊",
-        title: "國立高雄科技大學 / 電腦與通訊工程系 / 資料探勘與最佳化實驗室",
+        title: "國立高雄科技大學\n電腦與通訊工程系\n資料探勘與最佳化實驗室",
         description: "- 江傳文 教授\n- 王昱琪 大學生\n- 王晴葳 大學生 \n- 林永濬 大學生",
       },
       {
@@ -165,19 +172,39 @@ if (achievementsList) {
     const article = document.createElement("article");
     article.className = "timeline-item";
 
-    const date = item.date ? `<span>${item.date}</span>` : "";
-    const image = item.image
-      ? `<img class="timeline-image" src="${item.image}" alt="${item.title}" loading="lazy" draggable="false" />`
-      : "";
+    const copy = document.createElement("div");
+    copy.className = "timeline-copy";
 
-    article.innerHTML = `
-      <div class="timeline-copy">
-        ${date}
-        <h3>${item.title}</h3>
-        <p>${item.description}</p>
-      </div>
-      ${image}
-    `;
+    if (item.date) {
+      const date = document.createElement("span");
+      date.textContent = item.date;
+      copy.append(date);
+    }
+
+    const title = document.createElement("h3");
+    title.textContent = item.title;
+    copy.append(title);
+
+    if (item.description) {
+      const description = document.createElement("p");
+      description.textContent = item.description;
+      copy.append(description);
+    }
+
+    article.append(copy);
+
+    const image = item.image
+      ? document.createElement("img")
+      : null;
+
+    if (image) {
+      image.className = "timeline-image";
+      image.src = item.image;
+      image.alt = item.title;
+      image.loading = "lazy";
+      image.draggable = false;
+      article.append(image);
+    }
 
     achievementsList.append(article);
   });
