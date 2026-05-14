@@ -1,7 +1,8 @@
 const siteConfig = {
   // 你要修改網站內容時，優先改這一區。
   siteTitle: "自適應模擬退火方法應用於手術排程系統設計與實作",
-  siteDescription: "自適應模擬退火方法應用於手術排程系統設計與實作，整合影片、海報、簡報、事蹟與聯絡方式。",
+  siteDescription:
+    "自適應模擬退火方法應用於手術排程系統設計與實作，整合影片、海報、簡報、事蹟與聯絡方式。",
   youtubeUrl: "https://youtu.be/ia96zwjq1Qg",
   nav: {
     overview: "總覽",
@@ -14,8 +15,7 @@ const siteConfig = {
   hero: {
     groupLabel: "資工通訊群 C03",
     title: "自適應模擬退火方法應用於手術排程系統設計與實作",
-    description:
-      "結合自適應模擬退火與互動式排程介面，打造兼具智慧決策、彈性調整與臨床實證的智能手術排程管理系統。",
+    description: "歡迎來我們攤位實際操作看看！！",
     primaryButton: "開始瀏覽",
   },
   sections: {
@@ -49,22 +49,26 @@ const siteConfig = {
       {
         label: "專題名稱",
         title: "自適應模擬退火方法應用於手術排程系統設計與實作",
-        description: "以手術室排程為應用場域，整合最佳化演算法與互動式系統，協助產生可調整、可比較的排程結果。",
+        description:
+          "以手術室排程為應用場域，整合最佳化演算法與互動式系統，協助產生可調整、可比較的排程結果。",
       },
       {
         label: "問題背景",
         title: "手術排程容易受加班、超時與資源配置影響",
-        description: "醫療現場需同時考量手術時間、醫師安排、手術室資源與臨床限制，人工排程容易耗時且難以兼顧整體品質。",
+        description:
+          "醫療現場需同時考量手術時間、醫師安排、手術室資源與臨床限制，人工排程容易耗時且難以兼顧整體品質。",
       },
       {
         label: "解決方法",
         title: "以自適應模擬退火改善排程穩定性",
-        description: "透過自適應模擬退火方法搜尋較佳排程，並以系統介面呈現排程結果、衝突資訊與調整依據。",
+        description:
+          "透過自適應模擬退火方法搜尋較佳排程，並以系統介面呈現排程結果、衝突資訊與調整依據。",
       },
       {
         label: "成果亮點",
         title: "降低排程衝突並提升展示與決策效率",
-        description: "作品可輔助手術排程規劃、縮短人工比較時間，並用視覺化方式展示演算法結果與臨床決策參考。",
+        description:
+          "作品可輔助手術排程規劃、縮短人工比較時間，並用視覺化方式展示演算法結果與臨床決策參考。",
       },
     ],
   },
@@ -95,7 +99,8 @@ const siteConfig = {
       },
       {
         date: "",
-        title: "第30屆大專校院資訊應用服務創新競賽\n聯新國際智慧健康照護組(Landseed-02)\n第一名",
+        title:
+          "第30屆大專校院資訊應用服務創新競賽\n聯新國際智慧健康照護組(Landseed-02)\n第一名",
         // description: "外部競賽第一名獲獎紀錄。",
         image: "assets/achievements/achievement-04.jpg?v=20260511",
       },
@@ -118,12 +123,14 @@ const siteConfig = {
       {
         label: "專題名稱",
         title: "自適應模擬退火方法應用於手術排程系統設計與實作",
-        description: "結合自適應模擬退火與互動式排程介面，打造兼具智慧決策、彈性調整與臨床實證的智能手術排程管理系統。",
+        description:
+          "結合自適應模擬退火與互動式排程介面，打造兼具智慧決策、彈性調整與臨床實證的智能手術排程管理系統。",
       },
       {
         label: "團隊資訊",
         title: "國立高雄科技大學\n電腦與通訊工程系\n資料探勘與最佳化實驗室",
-        description: "- 江傳文 教授\n- 王昱琪 大學生\n- 王晴葳 大學生 \n- 林永濬 大學生",
+        description:
+          "- 江傳文 教授\n- 王昱琪 大學生\n- 王晴葳 大學生 \n- 林永濬 大學生",
       },
       {
         label: "聯絡方式",
@@ -193,9 +200,7 @@ if (achievementsList) {
 
     article.append(copy);
 
-    const image = item.image
-      ? document.createElement("img")
-      : null;
+    const image = item.image ? document.createElement("img") : null;
 
     if (image) {
       image.className = "timeline-image";
@@ -218,12 +223,16 @@ function getYoutubeEmbedUrl(url) {
 
     if (parsedUrl.hostname.includes("youtu.be")) {
       const videoId = parsedUrl.pathname.replace("/", "");
-      return videoId ? `https://www.youtube.com/embed/${videoId}?rel=0&playsinline=1` : "";
+      return videoId
+        ? `https://www.youtube.com/embed/${videoId}?rel=0&playsinline=1`
+        : "";
     }
 
     if (parsedUrl.hostname.includes("youtube.com")) {
       const videoId = parsedUrl.searchParams.get("v");
-      return videoId ? `https://www.youtube.com/embed/${videoId}?rel=0&playsinline=1` : "";
+      return videoId
+        ? `https://www.youtube.com/embed/${videoId}?rel=0&playsinline=1`
+        : "";
     }
   } catch {
     return "";
@@ -463,7 +472,10 @@ function closeZoomViewer() {
 function getPinchDistance(touches) {
   const first = touches[0];
   const second = touches[1];
-  return Math.hypot(first.clientX - second.clientX, first.clientY - second.clientY);
+  return Math.hypot(
+    first.clientX - second.clientX,
+    first.clientY - second.clientY,
+  );
 }
 
 zoomClose.addEventListener("click", closeZoomViewer);
